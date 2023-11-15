@@ -7,6 +7,7 @@
 
 .page.theme-light {
   --card-title-font-weight: 700;
+  --card-text-font-weight: 400;
   --main-color: #000;
   --background-color: #fff;
   --background-image: url("../svg/pattern-light.svg");
@@ -15,6 +16,7 @@
 
 .page.theme-dark {
   --card-title-font-weight: 785;
+  --card-text-font-weight: 465;
   --main-color: #00cc14;
   --background-color: #000;
   --background-image: url("../svg/pattern-dark.svg");
@@ -22,8 +24,9 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .page.theme-auto {
+  .page {
     --card-title-font-weight: 700;
+    --card-text-font-weight: 400;
     --main-color: #000;
     --background-color: #fff;
     --background-image: url("../svg/pattern-light.svg");
@@ -32,8 +35,9 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .page.theme-auto {
+  .page {
     --card-title-font-weight: 785;
+    --card-text-font-weight: 465;
     --main-color: #00cc14;
     --background-color: #000;
     --background-image: url("../svg/pattern-dark.svg");
