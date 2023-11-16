@@ -70,9 +70,47 @@
 
 .like-icon.is-liked .heart {
   transform-origin: center;
-  animation: scale 0.3s 0.1s ease-in alternate-reverse;
+  animation: scale 0.3s 0.1s ease-in alternate;
 }
 
 .like-icon.is-liked .sparks {
-  animation: spark 0.3s 0.3s ease-in alternate-reverse;
+  animation: spark 0.3s 0.3s ease-in alternate;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  animation: move-right 0.5s ease-in-out infinite alternate;
+  inset-inline-start: -20px;
+  inset-block-start: 0;
+}
+
+@keyframes move-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes scale {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.5;
+  }
+}
+
+@keyframes spark {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

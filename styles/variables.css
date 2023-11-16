@@ -7,7 +7,7 @@
   --main-color: #000;
   --background-color: #fff;
   --background-image: url("../svg/pattern-light.svg");
-  --content-width: clamp(320px, 100%, 696px);
+  --content-width: clamp(320px, 100%, 700px);
   --heart-contour-color: #000;
   --heart-fill-color: #f00;
 }
