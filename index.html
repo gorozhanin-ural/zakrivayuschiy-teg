@@ -51,7 +51,11 @@
             Фритрек и нулевой спринт: Подготовка к работе
           </h2>
           <figure class="card__image-container">
-            <img class="card__image" src="./images/image1.jpg" alt="Ноутбук" />
+            <img
+              class="card__image card__image_filter_brightness"
+              src="./images/image1.jpg"
+              alt="Ноутбук"
+            />
             <figcaption class="card__image-label">подготовка</figcaption>
           </figure>
           <div class="card__text">
@@ -105,7 +109,7 @@
           <h2 class="card__title">1 спринт: Я — чистый лист</h2>
           <figure class="card__image-container">
             <img
-              class="card__image"
+              class="card__image card__image_filter_contrast"
               src="./images/image2.jpg"
               alt="чистый лист"
             />
@@ -164,7 +168,11 @@
         <article class="card">
           <h2 class="card__title">1 спринт: А если не получится?</h2>
           <figure class="card__image-container">
-            <img class="card__image" src="./images/image3.jpg" alt="Путь" />
+            <img
+              class="card__image card__image_filter_blur"
+              src="./images/image3.jpg"
+              alt="Путь"
+            />
             <figcaption class="card__image-label">первый шаг</figcaption>
           </figure>
           <div class="card__text">
@@ -218,7 +226,11 @@
         <article class="card">
           <h2 class="card__title">2 спринт: Погоня за идеалом</h2>
           <figure class="card__image-container">
-            <img class="card__image" src="./images/image4.jpg" alt="Цель" />
+            <img
+              class="card__image card__image_filter_opacity"
+              src="./images/image4.jpg"
+              alt="Цель"
+            />
             <figcaption class="card__image-label">перфекционизм</figcaption>
           </figure>
           <div class="card__text">
@@ -275,7 +287,7 @@
           <h2 class="card__title">2 спринт: О тех, кто рядом</h2>
           <figure class="card__image-container">
             <img
-              class="card__image"
+              class="card__image card__image_filter_grayscale"
               src="./images/image5.jpg"
               alt="Поддержка"
             />
@@ -333,7 +345,11 @@
         <article class="card">
           <h2 class="card__title">3 спринт: Обходные стратегии</h2>
           <figure class="card__image-container">
-            <img class="card__image" src="./images/image6.jpg" alt="Объезд" />
+            <img
+              class="card__image card__image_filter_saturate"
+              src="./images/image6.jpg"
+              alt="Объезд"
+            />
             <figcaption class="card__image-label">переосмысление</figcaption>
           </figure>
           <div class="card__text">
@@ -384,7 +400,11 @@
         <article class="card">
           <h2 class="card__title">3 спринт: Когда опускаются руки</h2>
           <figure class="card__image-container">
-            <img class="card__image" src="./images/image7.jpg" alt="Стресс" />
+            <img
+              class="card__image card__image_filter_hue-rotate"
+              src="./images/image7.jpg"
+              alt="Стресс"
+            />
             <figcaption class="card__image-label">упорство</figcaption>
           </figure>
           <div class="card__text">
@@ -439,7 +459,11 @@
         <article class="card">
           <h2 class="card__title">«Сейчас я здесь»</h2>
           <figure class="card__image-container">
-            <img class="card__image" src="./images/image8.jpg" alt="Развилка" />
+            <img
+              class="card__image card__image_filter_sepia-invert"
+              src="./images/image8.jpg"
+              alt="Развилка"
+            />
             <figcaption class="card__image-label">планирование</figcaption>
           </figure>
           <div class="card__text">
@@ -505,17 +529,19 @@
         <span class="button__text">Сохранить на память</span>
       </button>
       <dialog class="dialog" id="save-dialog">
-        <svg class="dialog__icon">
-          <use href="./svg/floppy.svg#floppy"></use>
-        </svg>
-        <p class="dialog__text">Вставьте дискету, чтобы продолжить</p>
-        <button
-          type="button"
-          class="dialog__button button"
-          onclick="window['save-dialog'].close();"
-        >
-          <span class="button__text">OK</span>
-        </button>
+        <form method="dialog" class="dialog__form">
+          <svg class="dialog__icon" aria-hidden="true">
+            <use href="./svg/floppy.svg#floppy"></use>
+          </svg>
+          <p class="dialog__text">Вставьте дискету, чтобы продолжить</p>
+          <button
+            type="submit"
+            class="dialog__button button"
+            onclick="window['save-dialog'].close();"
+          >
+            <span class="dialog__button-text button__text">ok</span>
+          </button>
+        </form>
       </dialog>
     </main>
     <script src="./scripts/set-theme.js"></script>

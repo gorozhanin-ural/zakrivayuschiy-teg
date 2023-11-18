@@ -136,7 +136,6 @@
   display: flex;
   flex-direction: column;
   row-gap: 50px;
-  background-color: var(--background-color, #fff);
 }
 
 .card {
@@ -167,35 +166,35 @@
   aspect-ratio: 1 / 1;
 }
 
-.cards .card:nth-child(1) .card__image {
+.card__image_filter_brightness {
   filter: brightness(2);
 }
 
-.cards .card:nth-child(2) .card__image {
+.card__image_filter_contrast {
   filter: contrast(2);
 }
 
-.cards .card:nth-child(3) .card__image {
+.card__image_filter_blur {
   filter: blur(5px);
 }
 
-.cards .card:nth-child(4) .card__image {
+.card__image_filter_opacity {
   filter: opacity(0.5);
 }
 
-.cards .card:nth-child(5) .card__image {
+.card__image_filter_grayscale {
   filter: grayscale(0.5);
 }
 
-.cards .card:nth-child(6) .card__image {
+.card__image_filter_saturate {
   filter: saturate(2);
 }
 
-.cards .card:nth-child(7) .card__image {
+.card__image_filter_hue-rotate {
   filter: hue-rotate(90deg);
 }
 
-.cards .card:nth-child(8) .card__image {
+.card__image_filter_sepia-invert {
   filter: sepia(1) invert(1);
 }
 
@@ -317,10 +316,6 @@
 }
 
 .dialog[open] {
-  display: grid;
-  grid-template-areas: "icon text" "button button";
-  row-gap: 30px;
-  column-gap: 20px;
   inline-size: 341px;
   border: 2px solid var(--main-color, #000);
   padding: 23px 42px;
@@ -331,6 +326,13 @@
   line-height: 1.5;
   text-transform: uppercase;
   background-color: var(--background-color, #fff);
+}
+
+.dialog__form {
+  display: grid;
+  grid-template-areas: "icon text" "button button";
+  row-gap: 30px;
+  column-gap: 20px;
 }
 
 .dialog__icon {
@@ -351,6 +353,10 @@
   font-size: 14px;
   font-style: normal;
   line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.dialog__button-text {
   text-transform: uppercase;
 }
 

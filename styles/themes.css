@@ -28,10 +28,10 @@
   --background-color: #000;
   --background: repeating-linear-gradient(
       to right,
-      #d3d3d3 0 2px,
+      #000 0 2px,
       transparent 2px 4px
     ),
-    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(to bottom, #000 0 2px, transparent 2px 4px),
     linear-gradient(to bottom, #007f0c, #004306);
   --heart-contour-color: #00cc14;
   --button-text-color: #00cc14;
