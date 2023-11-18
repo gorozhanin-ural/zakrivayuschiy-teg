@@ -24,10 +24,9 @@
   padding: 100px 0 0;
   color: var(--main-color, #000);
   font-family: var(--main-font, "Inter-Variable"), sans-serif;
+  background: var(--background);
   background-color: var(--background-color, #fff);
-  background-image: var(--background-image);
-  background-repeat: repeat;
-  background-size: 4px;
+  background-size: cover;
   background-attachment: fixed;
   font-variation-settings: "wght" var(--card-text-font-weight, 400);
 }
@@ -133,6 +132,13 @@
   pointer-events: none;
 }
 
+.cards {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  background-color: var(--background-color, #fff);
+}
+
 .card {
   border: 2px solid var(--main-color, #000);
   background-color: var(--background-color, #fff);
@@ -146,11 +152,67 @@
   font-variation-settings: "wght" var(--card-title-font-weight, 700);
 }
 
+.card__image-container {
+  position: relative;
+  margin: 0;
+  border-block-start: 2px solid var(--main-color, #000);
+  border-block-end: 2px solid var(--main-color, #000);
+}
+
 .card__image {
   display: block;
   inline-size: 100%;
-  border-block-start: 2px solid var(--main-color, #000);
-  border-block-end: 2px solid var(--main-color, #000);
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1 / 1;
+}
+
+.cards .card:nth-child(1) .card__image {
+  filter: brightness(2);
+}
+
+.cards .card:nth-child(2) .card__image {
+  filter: contrast(2);
+}
+
+.cards .card:nth-child(3) .card__image {
+  filter: blur(5px);
+}
+
+.cards .card:nth-child(4) .card__image {
+  filter: opacity(0.5);
+}
+
+.cards .card:nth-child(5) .card__image {
+  filter: grayscale(0.5);
+}
+
+.cards .card:nth-child(6) .card__image {
+  filter: saturate(2);
+}
+
+.cards .card:nth-child(7) .card__image {
+  filter: hue-rotate(90deg);
+}
+
+.cards .card:nth-child(8) .card__image {
+  filter: sepia(1) invert(1);
+}
+
+.card__image-label {
+  position: absolute;
+  opacity: 0.5;
+  color: var(--main-color, #000);
+  font-family: var(--accent-font, "Press Start 2P"), fantasy, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  text-shadow: -1px 0 var(--background-color, #fff),
+    0 1px var(--background-color, #fff), 1px 0 var(--background-color, #fff),
+    0 -1px var(--background-color, #fff);
+  inset-block-start: 25px;
+  inset-inline-end: 11px;
+  mix-blend-mode: hard-light;
 }
 
 .card__text {
@@ -206,14 +268,17 @@
 
 .save-icon {
   position: relative;
+  z-index: 1;
   inline-size: 28px;
   block-size: 28px;
+  mix-blend-mode: difference;
 }
 
 .button {
   position: relative;
   border: 2px solid var(--main-color, #000);
   border-radius: 0;
+  color: var(--button-text-color, #fff);
   font-family: var(--accent-font, "Press Start 2P"), fantasy, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -226,10 +291,6 @@
 .button:focus {
   box-shadow: 2px 2px 0 var(--main-color, #000);
   outline: none;
-}
-
-.button:hover {
-  color: var(--background-color, #fff);
 }
 
 .button::before {
@@ -251,6 +312,64 @@
 
 .button__text {
   position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.dialog[open] {
+  display: grid;
+  grid-template-areas: "icon text" "button button";
+  row-gap: 30px;
+  column-gap: 20px;
+  inline-size: 341px;
+  border: none;
+  border: 2px solid var(--main-color, #000);
+  padding: 0;
+  padding: 23px 42px;
+  color: var(--main-color, #000);
+  font-family: var(--accent-font, "Press Start 2P"), fantasy, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.5;
+  text-transform: uppercase;
+  background-color: var(--background-color, #fff);
+}
+
+.dialog__icon {
+  grid-area: icon;
+  justify-self: center;
+  align-self: center;
+  max-inline-size: 39px;
+  max-block-size: 39px;
+}
+
+.dialog__text {
+  grid-area: text;
+}
+
+.dialog__button {
+  grid-area: button;
+  padding: 9px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.dialog::backdrop {
+  opacity: 0.75;
+  background: var(--main-color, #000);
+}
+
+@supports (
+  (text-stroke: 1px var(--background-color, #fff)) or
+    (-webkit-text-stroke: 1px var(--background-color, #fff))
+) {
+  .card__image-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--background-color, #fff);
+    text-stroke: 1px var(--background-color, #fff);
+  }
 }
 
 @media (375px < width) {
@@ -265,5 +384,13 @@
   .save-icon {
     inline-size: 21px;
     block-size: 21px;
+  }
+
+  .card__image-label {
+    inset-inline-end: 25px;
+  }
+
+  .dialog[open] {
+    inline-size: 357px;
   }
 }
