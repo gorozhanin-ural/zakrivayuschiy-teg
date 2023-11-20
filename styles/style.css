@@ -295,8 +295,7 @@
 .button::before {
   content: "";
   position: absolute;
-  inline-size: 100%;
-  block-size: 100%;
+  inset: 0;
   background-color: var(--main-color, #000);
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
@@ -306,7 +305,7 @@
 }
 
 .button:hover::before {
-  transform: scaleX(1);
+  transform: none;
 }
 
 .button__text {
