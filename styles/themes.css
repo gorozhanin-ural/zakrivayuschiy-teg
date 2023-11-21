@@ -10,8 +10,15 @@
   --card-text-font-weight: 400;
   --main-color: #000;
   --background-color: #fff;
-  --background-image: url("../svg/pattern-light.svg");
+  --background: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
   --heart-contour-color: #000;
+  --button-text-color: #fff;
 }
 
 .page.theme-dark {
@@ -19,8 +26,15 @@
   --card-text-font-weight: 465;
   --main-color: #00cc14;
   --background-color: #000;
-  --background-image: url("../svg/pattern-dark.svg");
+  --background: repeating-linear-gradient(
+      to right,
+      #000 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(to bottom, #000 0 2px, transparent 2px 4px),
+    linear-gradient(to bottom, #007f0c, #004306);
   --heart-contour-color: #00cc14;
+  --button-text-color: #00cc14;
 }
 
 @media (prefers-color-scheme: light) {
@@ -29,8 +43,15 @@
     --card-text-font-weight: 400;
     --main-color: #000;
     --background-color: #fff;
-    --background-image: url("../svg/pattern-light.svg");
+    --background: repeating-linear-gradient(
+        to right,
+        #d3d3d3 0 2px,
+        transparent 2px 4px
+      ),
+      repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
+      linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
     --heart-contour-color: #000;
+    --button-text-color: #fff;
   }
 }
 
@@ -40,7 +61,14 @@
     --card-text-font-weight: 465;
     --main-color: #00cc14;
     --background-color: #000;
-    --background-image: url("../svg/pattern-dark.svg");
+    --background: repeating-linear-gradient(
+        to right,
+        #000 0 2px,
+        transparent 2px 4px
+      ),
+      repeating-linear-gradient(to bottom, #000 0 2px, transparent 2px 4px),
+      linear-gradient(to bottom, #007f0c, #004306);
     --heart-contour-color: #00cc14;
+    --button-text-color: #00cc14;
   }
 }

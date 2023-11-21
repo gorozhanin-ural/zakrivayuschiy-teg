@@ -24,10 +24,9 @@
   padding: 100px 0 0;
   color: var(--main-color, #000);
   font-family: var(--main-font, "Inter-Variable"), sans-serif;
+  background: var(--background);
   background-color: var(--background-color, #fff);
-  background-image: var(--background-image);
-  background-repeat: repeat;
-  background-size: 4px;
+  background-size: cover;
   background-attachment: fixed;
   font-variation-settings: "wght" var(--card-text-font-weight, 400);
 }
@@ -133,6 +132,12 @@
   pointer-events: none;
 }
 
+.cards {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+}
+
 .card {
   border: 2px solid var(--main-color, #000);
   background-color: var(--background-color, #fff);
@@ -146,11 +151,67 @@
   font-variation-settings: "wght" var(--card-title-font-weight, 700);
 }
 
+.card__image-container {
+  position: relative;
+  margin: 0;
+  border-block-start: 2px solid var(--main-color, #000);
+  border-block-end: 2px solid var(--main-color, #000);
+}
+
 .card__image {
   display: block;
   inline-size: 100%;
-  border-block-start: 2px solid var(--main-color, #000);
-  border-block-end: 2px solid var(--main-color, #000);
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1 / 1;
+}
+
+.card__image_filter_brightness {
+  filter: brightness(2);
+}
+
+.card__image_filter_contrast {
+  filter: contrast(2);
+}
+
+.card__image_filter_blur {
+  filter: blur(5px);
+}
+
+.card__image_filter_opacity {
+  filter: opacity(0.5);
+}
+
+.card__image_filter_grayscale {
+  filter: grayscale(0.5);
+}
+
+.card__image_filter_saturate {
+  filter: saturate(2);
+}
+
+.card__image_filter_hue-rotate {
+  filter: hue-rotate(90deg);
+}
+
+.card__image_filter_sepia-invert {
+  filter: sepia(1) invert(1);
+}
+
+.card__image-label {
+  position: absolute;
+  opacity: 0.5;
+  color: var(--main-color, #000);
+  font-family: var(--accent-font, "Press Start 2P"), fantasy, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  text-shadow: -1px 0 var(--background-color, #fff),
+    0 1px var(--background-color, #fff), 1px 0 var(--background-color, #fff),
+    0 -1px var(--background-color, #fff);
+  inset-block-start: 25px;
+  inset-inline-end: 11px;
+  mix-blend-mode: hard-light;
 }
 
 .card__text {
@@ -206,14 +267,17 @@
 
 .save-icon {
   position: relative;
+  z-index: 1;
   inline-size: 28px;
   block-size: 28px;
+  mix-blend-mode: difference;
 }
 
 .button {
   position: relative;
   border: 2px solid var(--main-color, #000);
   border-radius: 0;
+  color: var(--button-text-color, #fff);
   font-family: var(--accent-font, "Press Start 2P"), fantasy, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -228,15 +292,10 @@
   outline: none;
 }
 
-.button:hover {
-  color: var(--background-color, #fff);
-}
-
 .button::before {
   content: "";
   position: absolute;
-  inline-size: 100%;
-  block-size: 100%;
+  inset: 0;
   background-color: var(--main-color, #000);
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
@@ -246,11 +305,74 @@
 }
 
 .button:hover::before {
-  transform: scaleX(1);
+  transform: none;
 }
 
 .button__text {
   position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.dialog[open] {
+  inline-size: 341px;
+  border: 2px solid var(--main-color, #000);
+  padding: 23px 42px;
+  color: var(--main-color, #000);
+  font-family: var(--accent-font, "Press Start 2P"), fantasy, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.5;
+  text-transform: uppercase;
+  background-color: var(--background-color, #fff);
+}
+
+.dialog__form {
+  display: grid;
+  grid-template-areas: "icon text" "button button";
+  row-gap: 30px;
+  column-gap: 20px;
+}
+
+.dialog__icon {
+  grid-area: icon;
+  justify-self: center;
+  align-self: center;
+  max-inline-size: 39px;
+  max-block-size: 39px;
+}
+
+.dialog__text {
+  grid-area: text;
+}
+
+.dialog__button {
+  grid-area: button;
+  padding: 9px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.dialog__button-text {
+  text-transform: uppercase;
+}
+
+.dialog::backdrop {
+  opacity: 0.75;
+  background: var(--main-color, #000);
+}
+
+@supports (
+  (text-stroke: 1px var(--background-color, #fff)) or
+    (-webkit-text-stroke: 1px var(--background-color, #fff))
+) {
+  .card__image-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--background-color, #fff);
+    text-stroke: 1px var(--background-color, #fff);
+  }
 }
 
 @media (375px < width) {
@@ -265,5 +387,13 @@
   .save-icon {
     inline-size: 21px;
     block-size: 21px;
+  }
+
+  .card__image-label {
+    inset-inline-end: 25px;
+  }
+
+  .dialog[open] {
+    inline-size: 357px;
   }
 }
